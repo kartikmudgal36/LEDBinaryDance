@@ -1,0 +1,24 @@
+#define F_CPU 1000000UL
+#include <avr/io.h>
+#include <util/delay.h>
+int main()
+{
+    int arr[]={0X01,0X03,0X07,0X0F,0X1F,0X3F,0X7F,0XFF};
+    int i;
+    DDRD= 0XFF;
+    while(1)
+    {
+        
+        for(i=0;i<8;i++)
+        {
+            PORTD =arr[i];
+            _delay_ms(1000);
+        }
+         for (i=7;i>=0;i--)
+        {
+            PORTD =arr[i];
+            _delay_ms(1000);
+         }
+    }
+    
+}
